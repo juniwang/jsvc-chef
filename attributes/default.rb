@@ -1,3 +1,9 @@
+#
+# Author:: Junius Wang (<wangjunbo924@gmail.com>)
+# Cookbook Name:: jsvc-cookbook
+# Attribute:: default
+#
+
 default[:commons_daemon][:version] = "1.0.15"
 default[:commons_daemon][:mirror] = "http://archive.apache.org/dist/commons/daemon"
 # md5 for the source tarball
