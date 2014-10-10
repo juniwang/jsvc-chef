@@ -21,13 +21,14 @@ case node['platform']
     package "jsvc"
   when "redhat", "centos", "fedora"
     if node[:commons_daemon][:use_yum]
-      %w{jakarta-commons-daemon-jsvc jakarta-commons-daemon}.each do |pkg|
+      to_install = ['jakarta-commons-daemon-jsvc']
+      to_install << 'jakarta-commons-daemon' if node[:commons_daemon][:install_commons_daemon_jar]
+      to_install.each do |pkg|
         package pkg
       end
     else
       include_recipe "build-essential" 
       install_jsvc
-      install_commons_daemon_jar
+      install_commons_daemon_jar if node[:commons_daemon][:install_commons_daemon_jar]
     end
 end
-  
