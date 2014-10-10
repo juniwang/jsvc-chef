@@ -1,7 +1,7 @@
 jsvc
 ====
 
-a chef cookbook to install jsvc and commons-daemon
+a chef cookbook to install [jsvc](http://commons.apache.org/proper/commons-daemon/jsvc.html) and commons-daemon
 
 ## Overview ##
 
@@ -34,4 +34,4 @@ This cookbook is under the included MIT License.
 
 ## Contact ##
 
-Contribute to this Cookbook at https://github.com/wangjunbo924/jsvc-cookbook. Any other feedback or support related questions can be sent to support @ newrelic.com. 
+Contribute to this Cookbook at https://github.com/wangjunbo924/jsvc-cookbook. Any other feedback or support related questions can be sent to support @ newrelic.com.
