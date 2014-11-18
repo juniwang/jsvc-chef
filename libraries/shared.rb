@@ -17,14 +17,16 @@ class Chef
       bash "configure and build jsvc" do
         cwd chef_cache_path
         code <<-EOH
+          set -e
           tar zxvf #{tarball_path}
           export JAVA_HOME=#{node['java']['java_home']}
             cd commons-daemon-#{node[:commons_daemon][:version]}-src/src/native/unix && ./configure
             make
-            rm #{jsvc_path}
+            rm -f #{jsvc_path}
             cp ./jsvc #{jsvc_path}
             cd #{chef_cache_path}
             rm -rf commons-daemon-#{node[:commons_daemon][:version]}-src
+          set +e
         EOH
         not_if { ::File.exists? (jsvc_path) && %x( jsvc -help | grep '#{node[:commons_daemon][:version]}') }
       end
